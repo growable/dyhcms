@@ -28,30 +28,34 @@ body{
 	cursor: pointer;
 }
 .breadcrumb{
-	box-shadow: 0 0 7px #333;
+	/*box-shadow: 0 0 7px #333;*/
+	border: 1px solid #BCBCBC;
 }
 .post-wrap{
 	padding-top: 10px;
 }
 .post-wrap-base{
 	background-color: #f5f5f5;
-	box-shadow: 0 0 10px #333;
+	/*box-shadow: 0 0 10px #333;*/
 	border-radius: 5px;
 	padding: 5px;
+	border: 1px solid #BCBCBC;
 }
 .post-wrap-content{
 	background-color: #f5f5f5;
-	box-shadow: 0 0 10px #333;
+	/*box-shadow: 0 0 10px #333;*/
 	border-radius: 5px;
 	margin-top: 20px;
+	/*border: 1px solid #BCBCBC;*/
 }
 .post-button{
 	background-color: #f5f5f5;
-	margin-top: 15px;
+	margin-top: 10px;
 	border-radius: 5px;
-	box-shadow:  0 0 5px #333;
+	/*box-shadow:  0 0 5px #333;*/
 	padding-top: 5px;
 	padding-bottom: 5px;
+	border: 1px solid #BCBCBC;
 }
 .post-button button{
 	margin-left: 10px;
