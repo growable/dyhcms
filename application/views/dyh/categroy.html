@@ -1,0 +1,114 @@
+<{include "<{$vpath}>/header.html"}>
+<{include "<{$vpath}>/left_bar.html"}>
+	<header id="article_header">
+		<ol class="breadcrumb http-direct" style="margin-bottom: 5px;">
+			<li><span data-href="/">Home</span></li>
+			<li><span data-href="articles/post">Articles</span></li>
+			<li class="active">Data</li>
+		</ol>
+	</header>
+	<section class="col-xs-12 post-wrap-base pd0">
+		<div class="col-xs-12 pdtb10">
+			<div class="col-xs-12 col-md-6 add-alter-category">
+				<div class="glyphicon glyphicon-plus label-title"> <span style="font-size:18px">Add Category</span></div>
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+					    <label for="category_name" class="col-sm-2 control-label">Name</label>
+					    <div class="col-sm-8">
+					    	<input type="text" class="form-control" id="category_name" placeholder="Category Name">
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label for="category_name" class="col-sm-2 control-label">Url Alis</label>
+					    <div class="col-sm-8">
+					    	<input type="text" class="form-control" id="category_name" placeholder="Url">
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label for="postcontent" class="col-sm-2 control-label">Parent</label>
+					    <div class="col-sm-10">
+					    	<div class="col-xs-4 pd0">
+					    		<select class="form-control">
+									<option>Null</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+					    	</div>
+					    </div>
+					</div>
+					<div class="col-xs-12 pd0">
+						<button type="button" class="btn btn-primary pull-right" title="发布">Add</button>
+					</div>
+				</form>
+				<hr/>
+				<div class="glyphicon glyphicon-edit label-title"> <span style="font-size:18px">Alter Category</span></div>	
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+					    <label for="category_name" class="col-sm-2 control-label">Name</label>
+					    <div class="col-sm-8">
+					    	<input type="text" class="form-control" id="category_name" placeholder="Category Name">
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label for="category_name" class="col-sm-2 control-label">Url Alis</label>
+					    <div class="col-sm-8">
+					    	<input type="text" class="form-control" id="category_name" placeholder="Url">
+					    </div>
+					</div>
+					<div class="form-group">
+					    <label for="postcontent" class="col-sm-2 control-label">Parent</label>
+					    <div class="col-sm-10">
+					    	<div class="col-xs-4 pd0">
+					    		<select class="form-control">
+									<option>Null</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+					    	</div>
+					    </div>
+					</div>
+					<div class="col-xs-12 pd0">
+						<button type="button" class="btn btn-primary pull-right" title="修改">Alter</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<div class="glyphicon glyphicon-th-list label-title"> <span style="font-size:18px">All Category</span></div>	
+				<div class="all-category">
+					<ul id="expmenu-freebie">
+						<li>
+							<ul class="expmenu">
+								<li>
+									<div class="header">
+										<span class="label">Post</span>
+										<span class="arrow up"></span>
+									</div>
+									<ul class="menu">
+										<li title="点击修改">New Post</li>
+										<li class="selected" title="点击修改">All Post</li>
+										<li title="点击修改">Category Post</li>
+									</ul>
+								</li>
+								<li>
+									<div class="header">
+										<span class="label">Category</span>
+										<span class="arrow up"></span>
+									</div>
+									<ul class="menu" style="">
+										<li title="点击修改">New Category</li>
+										<li title="点击修改">All Category</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<{include "<{$vpath}>/footer.html"}>

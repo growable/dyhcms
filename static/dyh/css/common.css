@@ -64,6 +64,12 @@ body{
 .http-direct{
 	cursor: pointer;
 }
+.http-direct span{
+	color: #337ab7;
+}
+.http-direct span:hover{
+	color:#23527c;
+}
 .pages span{
 	padding: 5px;
 }
@@ -73,12 +79,13 @@ body{
 
 @media (min-width: 992px) {
 	.add-alter-category{
-		border-right: 1px solid #abcdef;
+		border-right: 2px solid #abcdef;
 	}
 }
 .label-title{
 	font-size: 18px;
 	padding:10px 0;
+	color:#4d7fb8;
 }
 
 /** 
