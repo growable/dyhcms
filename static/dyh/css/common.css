@@ -67,6 +67,19 @@ body{
 .pages span{
 	padding: 5px;
 }
+.all-category{
+	
+}
+
+@media (min-width: 992px) {
+	.add-alter-category{
+		border-right: 1px solid #abcdef;
+	}
+}
+.label-title{
+	font-size: 18px;
+	padding:10px 0;
+}
 
 /** 
  * 左侧导航栏
@@ -211,6 +224,10 @@ div#content { display: table; margin: 0 auto; padding: 30px; }
 }
 .pdr0{
 	padding-right: 0;
+}
+.pdtb10 {
+	padding-top: 10px!important;
+	padding-bottom: 10px!important;
 }
 .bg-white{
 	background-color: #FFF;

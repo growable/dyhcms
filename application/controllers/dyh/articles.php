@@ -20,6 +20,7 @@ class Articles extends CI_Controller {
 
 	//文章详情
 	public function detail($aid) {
+		$this->smarty->assign("title", "Update Articles | DYHCMS");
 
 		$this->smarty->display(DYH_CPATH . "detail_articles.html");
 	}

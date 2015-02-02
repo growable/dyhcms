@@ -45,6 +45,8 @@
 	//链接跳转
 	$('.menu li, .http-direct span').click(function(){
 		var href = $(this).attr("data-href");
-		window.location.href = "http://" + window.location.host + "/dyh/" + href;
+		if (href.length > 0) {
+			window.location.href = "http://" + window.location.host + "/dyh/" + href;
+		}
 	});
 });
