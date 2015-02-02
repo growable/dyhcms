@@ -61,6 +61,13 @@ body{
 	margin-left: 10px;
 }
 
+.http-direct{
+	cursor: pointer;
+}
+.pages span{
+	padding: 5px;
+}
+
 /** 
  * 左侧导航栏
  */
@@ -204,4 +211,7 @@ div#content { display: table; margin: 0 auto; padding: 30px; }
 }
 .pdr0{
 	padding-right: 0;
+}
+.bg-white{
+	background-color: #FFF;
 }

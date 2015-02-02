@@ -1,0 +1,66 @@
+<{include "<{$vpath}>/header.html"}>
+<{include "<{$vpath}>/left_bar.html"}>
+	<header id="article_header" class="col-xs-12 breadcrumb http-direct">
+		<span data-href="/">Home</span> &rsaquo; 
+		<span data-href="articles/post">Post</span> &raquo;
+		<span>All Article</span>
+	</header>
+	<section class="col-xs-12 post-wrap pd0">
+		<div class="post-wrap-base">
+			<div class="form-group">
+				<label for="postcontent" class="col-sm-1 control-label">Categorys:</label>
+			    <div class="col-sm-10">
+			    	<div class="col-xs-3 pd0">
+			    		<select class="form-control">
+							<option>Category</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+			    	</div>
+			    </div>
+			</div>
+			<table class="table table-hover bg-white">
+				<thead>
+					<tr>
+						<th width="5%">#</th>
+						<th width="30%">Title</th>
+						<th width="10%">Category</th>
+						<th width="10%">Post Time</th>
+						<th width="10%">Last Update</th>
+						<th width="20%">Tags</th>
+						<th width="15%">Operation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<{assign var="loop" value="19"}>　　
+				　　<{section name="loop" loop=$loop}>				　　
+				　　<tr>
+						<td><{$smarty.section.loop.index}></td>
+						<td class="http-direct" title="Mark"><span data-href="articles/detail/<{$smarty.section.loop.index}>">Mark</span></td>
+						<td>Otto</td>
+						<td>@mdo</td>
+						<td>1</td>
+						<td>Mark</td>
+						<td>Otto</td>
+					</tr>				　　
+				　　<{/section}>
+				</tbody>
+			</table> 
+			<div class="form-group col-md-offset-4 pages">
+				<span>First</span>
+				<span>Previous</span>
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>...</span>
+				<span>21</span>
+				<span>22</span>
+				<span>23</span>
+				<span>Next</span>
+				<span>Last</span>
+			</div>
+		</div>
+	</section>
+<{include "<{$vpath}>/footer.html"}>

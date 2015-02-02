@@ -22,7 +22,7 @@
 	//初始化窗口高度
 	var browser_height = document.documentElement.clientHeight;
 	var browser_width = document.documentElement.clientWidth;
-	if (browser_width > 750) {		
+	if (browser_width > 973) {		
 		var left_div = $('#expmenu-freebie').outerHeight();
 		var left_height = browser_height - 50 > left_div ? browser_height - 50 : left_div;
 		$('#left_wrap').css({"height":left_height});
@@ -33,7 +33,7 @@
 		var browser_height = document.documentElement.clientHeight;
 		var browser_width = document.documentElement.clientWidth;
 		var left_div = $('#expmenu-freebie').outerHeight();
-		var left_height = browser_width > 750 && (browser_height - 50) > left_div ? (browser_height - 50) : left_div;
+		var left_height = browser_width > 973 && (browser_height - 50) > left_div ? (browser_height - 50) : left_div;
 		$('#left_wrap').css({"height":left_height});
 
 		if ($('#edui1')) {
