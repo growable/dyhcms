@@ -24,8 +24,11 @@
 	var browser_width = document.documentElement.clientWidth;
 	if (browser_width > 973) {		
 		var left_div = $('#expmenu-freebie').outerHeight();
+		var cate_div = $('#category_wrap').outerHeight();
 		var left_height = browser_height - 50 > left_div ? browser_height - 50 : left_div;
+		var cate_height = browser_width > 973 && (browser_height - 50) > cate_div ? (browser_height - 90) : cate_div;
 		$('#left_wrap').css({"height":left_height});
+		$('#category_wrap').css({"height":cate_height});
 	}
 
 	//调整浏览器大小
@@ -33,8 +36,13 @@
 		var browser_height = document.documentElement.clientHeight;
 		var browser_width = document.documentElement.clientWidth;
 		var left_div = $('#expmenu-freebie').outerHeight();
+
+		$('#category_wrap').css({"height":''});//初始化为自动高度
+		var cate_div = $('#category_wrap').outerHeight();
 		var left_height = browser_width > 973 && (browser_height - 50) > left_div ? (browser_height - 50) : left_div;
+		var cate_height = browser_width > 973 && (browser_height - 50) > cate_div ? (browser_height - 90) : cate_div;
 		$('#left_wrap').css({"height":left_height});
+		$('#category_wrap').css({"height":cate_height});
 
 		if ($('#edui1')) {
 			$('#edui1').css({"width":"auto"});

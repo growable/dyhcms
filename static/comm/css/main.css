@@ -1,0 +1,107 @@
+.bg{
+	background-color: #EFEFEF;
+	font-family: "Microsoft YaHei";
+}
+
+@media (min-width: 900px) {
+	.body-width {
+		width: 900px;
+		margin: 0 auto;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}	
+}
+
+@media (max-width: 900px) {
+
+
+}
+
+#left{
+	background-color: rgba(0,0,0,0.7);
+	text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	color: #adadad;
+	text-align: center;
+	height: 600px;
+	border-radius: 2px;
+	padding: 0;
+}
+#right{
+	padding-left:30px;
+	padding-right: 0;
+}
+.cell{
+	padding: 0;
+	margin-bottom: 30px;
+}
+.cell-post{
+	background-color: #FFF;
+	box-shadow:0 1px 1px 0 rgba(0,0,0,0.25);
+	height: 200px;
+	border-radius: 2px;
+}
+.cell-top{
+	margin-bottom: 20px;
+	padding-bottom: 14px;
+	border-bottom: 1px dotted #DFDFDF;
+}
+.cell-top{
+	font-size: 18px;
+}
+.cell-center{
+	font-size: 12px;
+	color: rgb(144, 147, 154);
+	display: block;
+}
+.cell-bottom{
+	padding: 17px 30px;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.25) inset;
+	text-shadow: 0 1px 0 #FFF; 
+	background: url(/static/comm/img/cell-bottom.png) repeat 0 0;
+	line-height: 16px;
+	border-bottom: 1px solid #DDD;
+	border-radius: 2px;
+}
+.post-time{
+	padding: 0 20px;
+	font-size: 12px;
+	color: rgb(144, 147, 154);
+	background: url(/static/comm/img/pic.png) 0 -45px no-repeat;
+}
+.post-time:hover{
+	cursor: pointer;
+	background: url(/static/comm/img/pic.png) 0 -93px no-repeat;
+}
+.post-tags{
+	padding: 0 20px;
+	font-size: 12px;
+	color: rgb(144, 147, 154);
+	background: url(/static/comm/img/pic.png) 0 -320px no-repeat;
+}
+.post-tags:hover{
+	cursor: pointer;
+	background: url(/static/comm/img/pic.png) 0 -361px no-repeat;
+}
+.user-pic{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.user-pic img{
+	border-radius: 50px;
+}
+.web-name{
+	font-size: 18px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	cursor: pointer;
+}
+.web-about{
+	padding: 10px;
+	border-top: 1px solid rgba(255,255,255,0.13);
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+	background: rgba(0,0,0,0.21);
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.3) inset;
+	line-height: 20px;
+	/*letter-spacing: 1px;*/
+}

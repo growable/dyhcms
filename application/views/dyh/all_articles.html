@@ -32,12 +32,12 @@
 						<th width="10%">Category</th>
 						<th width="10%">Post Time</th>
 						<th width="10%">Last Update</th>
-						<th width="20%">Tags</th>
-						<th width="15%">Operation</th>
+						<th width="18%">Tags</th>
+						<th width="17%">Operation</th>
 					</tr>
 				</thead>
 				<tbody>
-					<{assign var="loop" value="17"}>　　
+					<{assign var="loop" value="15"}>　　
 				　　<{section name="loop" loop=$loop}>				　　
 				　　<tr>
 						<td><{$smarty.section.loop.index}></td>
@@ -46,7 +46,15 @@
 						<td>@mdo</td>
 						<td>1</td>
 						<td>Mark</td>
-						<td>Otto</td>
+						<td>
+							<div class="btn-group btn-group-xs" role="group" aria-label="Operation group">
+								<button type="button" class="btn btn-primary" title="编辑文章">&nbsp;Edit&nbsp;</button>
+							<div class="btn-group btn-group-xs" role="group" aria-label="Operation group">
+								<button type="button" class="btn btn-danger" title="删除文章">Delete</button>
+							<div class="btn-group btn-group-xs" role="group" aria-label="Operation group">
+								<button type="button" class="btn btn-warning" title="隐藏文章">Hidden</button>
+							</div>
+						</td>
 					</tr>				　　
 				　　<{/section}>
 				</tbody>
