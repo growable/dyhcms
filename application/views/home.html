@@ -8,6 +8,7 @@
 	<link href="<{$base_url}>static/dist/css/bootstrap.css" rel="stylesheet">
 	<link href="<{$base_url}>static/comm/css/main.css" rel="stylesheet">		
 	<script type="text/javascript" src="<{$base_url}>static/comm/js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="<{$base_url}>static/comm/js/main.js"></script>
 	<script type="text/javascript" src="<{$base_url}>static/dist/js/bootstrap.js"></script>
 </head>
 <body class="bg">
@@ -20,11 +21,26 @@
 			<div class="col-xs-12 web-about">
 				<p>If you want something, go get it.</p>
 			</div>
+			<div class="col-xs-10 col-xs-offset-1">
+				<ul class="col-xs-12 menu">
+					<li title="首页">首页</li>
+					<li title="PHP">PHP</li>
+					<li title="MySQL">MySQL</li>
+					<li title="JS">JS</li>
+					<li title="其他">其他</li>
+				</ul>
+			</div>
+			<div class="col-xs-12 line"></div>
+			<div class="col-xs-12 copy-right">
+				<p>&copy; DYHCMS.COM</p>
+				<p>Powered By Growable.</p>
+			</div>
 		</div>
+		<div id="left_placeholder" class="col-xs-12 col-sm-4"></div>
 		<div class="col-xs-12 col-sm-8" id="right">
 			<div class="col-xs-12 cell">
 				<div class="col-xs-12 cell-post">
-					<h2 class="cell-top"><a>通过下表可以详细查看 Bootstrap </a></h2>
+					<h2 class="cell-top"><a href="<{$base_url}>article/1">通过下表可以详细查看 Bootstrap </a></h2>
 					<div class="cell-center"><p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。下面就介绍一下 Bootstrap 栅格系统的工作原理：</p></div>
 				</div>
 				<div class="col-xs-12 cell-bottom">
@@ -34,7 +50,7 @@
 			</div>
 			<div class="col-xs-12 cell">
 				<div class="col-xs-12 cell-post">
-					<h2 class="cell-top"><a>通过下表可以详细查看 Bootstrap </a></h2>
+					<h2 class="cell-top"><a href="<{$base_url}>article/1">通过下表可以详细查看 Bootstrap </a></h2>
 					<div class="cell-center"><p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。下面就介绍一下 Bootstrap 栅格系统的工作原理：</p></div>
 				</div>
 				<div class="col-xs-12 cell-bottom">
@@ -44,7 +60,7 @@
 			</div>
 			<div class="col-xs-12 cell">
 				<div class="col-xs-12 cell-post">
-					<h2 class="cell-top"><a>通过下表可以详细查看 Bootstrap </a></h2>
+					<h2 class="cell-top"><a href="<{$base_url}>article/1">通过下表可以详细查看 Bootstrap </a></h2>
 					<div class="cell-center"><p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。下面就介绍一下 Bootstrap 栅格系统的工作原理：</p></div>
 				</div>
 				<div class="col-xs-12 cell-bottom">
@@ -54,7 +70,7 @@
 			</div>
 			<div class="col-xs-12 cell">
 				<div class="col-xs-12 cell-post">
-					<h2 class="cell-top"><a>通过下表可以详细查看 Bootstrap </a></h2>
+					<h2 class="cell-top"><a href="<{$base_url}>article/1">通过下表可以详细查看 Bootstrap </a></h2>
 					<div class="cell-center"><p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。下面就介绍一下 Bootstrap 栅格系统的工作原理：</p></div>
 				</div>
 				<div class="col-xs-12 cell-bottom">
@@ -62,6 +78,9 @@
 					<span class="post-tags" title="文章标签">123,567</span>
 				</div>
 			</div>
+		</div>
+		<div id="to_top" title="返回顶部" style="display:none">
+			<span class="arrow">&nbsp;</span>
 		</div>
 	</div>
 </body>
