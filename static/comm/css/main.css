@@ -206,9 +206,10 @@
 	margin-bottom: 20px;
 }
 .article-header h1 {
-	text-align: center;
+	text-align: left;
 	font-size: 28px;
 	color: #666;
+	margin: 10px 0;
 }
 .pre-next{
 	padding-top: 10px;
@@ -216,7 +217,7 @@
 }
 .other{
 	background-color: #FFF;
-	height:160px;
+	/*height:160px;*/
 	border-radius: 3px;
 	padding: 0;
 }
@@ -234,4 +235,15 @@
 	overflow: hidden;
 	height: 25px;
 	line-height: 25px;
+}
+.breadcrumb{
+	float: left;
+	padding: 5px;
+	background-color: #FFF;
+	margin: 0;
+	font-size: 12px;
+}
+.list-breadcrumb{
+	background-color: #EFEFEF;
+	padding: 0 0 5px 0;
 }
