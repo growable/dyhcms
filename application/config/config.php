@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://dyhcms.com/';
+$config['base_url']	= 'https://dyhcms-yhdeng-6.c9.io/';
 
 /*
 |--------------------------------------------------------------------------
@@ -213,7 +213,7 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 | system/cache/ folder.  Use a full server path with trailing slash.
 |
 */
-$config['cache_path'] = '';
+$config['cache_path'] = 'application/cache/';
 
 /*
 |--------------------------------------------------------------------------

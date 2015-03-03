@@ -20,31 +20,29 @@
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">&nbsp;&nbsp;&nbsp;&nbsp;Action</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">&nbsp;&nbsp;&nbsp;&nbsp;Another action</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">&nbsp;&nbsp;&nbsp;&nbsp;Something else here</a></li>
-						
 					</ul>
 				</div>
 			</div>
 			<table class="table table-hover bg-white">
 				<thead>
 					<tr>
-						<th width="5%">#</th>
-						<th width="30%">Title</th>
-						<th width="10%">Category</th>
-						<th width="10%">Post Time</th>
-						<th width="10%">Last Update</th>
-						<th width="18%">Tags</th>
-						<th width="17%">Operation</th>
+						<th width="5%" title="ID">#</th>
+						<th width="30%" title="标题">Title</th>
+						<th width="10%" title="分类">Category</th>
+						<th width="10%" title="发布时间">Post Time</th>
+						<th width="10%" title="更新时间">Last Update</th>
+						<th width="18%" title="标签">Tags</th>
+						<th width="17%" title="操作">Operation</th>
 					</tr>
 				</thead>
-				<tbody>
-					<{assign var="loop" value="15"}>　　
-				　　<{section name="loop" loop=$loop}>				　　
-				　　<tr>
-						<td><{$smarty.section.loop.index}></td>
-						<td class="http-direct" title="Mark"><span data-href="articles/detail/<{$smarty.section.loop.index}>">Mark</span></td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>1</td>
+				<tbody>　　
+					<{foreach from=$articles_list name=article item=article}>　	
+					<tr>
+						<td><{$smarty.foreach.article.iteration}></td>
+						<td class="http-direct" title="<{$article.title}>"><span data-href="<{$index_page}>dyh/articles/detail/<{$article.aid}>"><{$article.title}></span></td>
+						<td><{$article.cname}></td>
+						<td><{$article.post_time|date_format:"%Y-%m-%d"}></td>
+						<td><{$article.update_time|date_format:"%Y-%m-%d"}></td>
 						<td>Mark</td>
 						<td>
 							<div class="btn-group btn-group-xs" role="group" aria-label="Operation group">
@@ -56,20 +54,12 @@
 							</div>
 						</td>
 					</tr>				　　
-				　　<{/section}>
+					<{/foreach}>
 				</tbody>
 			</table> 
 			<div class="form-group col-md-offset-4 pages">
 				<nav>
-					<ul class="pagination">
-						<li class="disabled"><a href="#"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li class="active"><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
-					</ul>
+					<{$paginations}>
 				</nav>
 			</div>
 		</div>
