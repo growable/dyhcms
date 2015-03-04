@@ -248,3 +248,13 @@ div#content { display: table; margin: 0 auto; padding: 30px; }
 .bg-white{
 	background-color: #FFF;
 }
+.tag-wrap{
+	font-size: 16px;
+	margin-top: 5px;
+}
+.tag-label{
+	cursor: pointer!important;
+}
+.tag-label:hover{
+	background-color: #d9534f;
+}

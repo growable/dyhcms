@@ -24,7 +24,8 @@ class CI_Smarty extends Smarty{
         $this->smarty->assign('base_url', $this->ci->config->item('base_url')); //静态页面的css以及js路径
         
         //判断是否去掉index.php
-        $index_page = !empty($this->ci->config->item('index_page')) ? "index.php/" : "";
+        $indx_page_tmp = $this->ci->config->item('index_page');
+        $index_page = !empty($indx_page_tmp) ? "index.php/" : "";
         $this->smarty->assign("index_page", $index_page);
         
         $this->smarty->assign("vpath", DYH_VPATH); //视图路径

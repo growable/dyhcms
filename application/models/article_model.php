@@ -53,6 +53,50 @@
             }
             return ;
         }
+
+
+        /**
+         * [checkUrlExist description]
+         * @param  [type] $url [description]
+         * @return [type]      [description]
+         */
+        public function checkUrlExist($url) {
+            $sql = "SELECT * FROM `ds_articles` WHERE `url_title` = '{$url}' LIMIT 1";
+            return $this->db->query($sql)->result_array();
+        }
+
+        /**
+         * [addArticle 新增文章]
+         * @param [type] $title   [description]
+         * @param [type] $url     [description]
+         * @param [type] $desc    [description]
+         * @param [type] $content [description]
+         * @param [type] $cate    [description]
+         */
+        public function addArticle($title, $url, $desc, $content, $cate, $type){
+            $time = date("Y-m-d H:i:s");
+            $sql = "INSERT INTO `ds_articles` (`title`, `url_title`, `description`, `content`, `category`, `post_time`, `update_time`, `status`)
+                                VALUES ('{$title}', '{$url}', '{$desc}', '{$content}', $cate, '{$time}', '{$time}', {$type})";
+            $this->db->query($sql);
+            return $this->db->insert_id();
+        }
+
+        /**
+         * [updateArticle更新文章信息]
+         * @param  [type] $aid     [description]
+         * @param  [type] $title   [description]
+         * @param  [type] $url     [description]
+         * @param  [type] $desc    [description]
+         * @param  [type] $content [description]
+         * @param  [type] $cate    [description]
+         */
+        public function updateArticle($aid, $title, $url, $desc, $content, $cate) {
+            $time = date("Y-m-d H:i:s");
+            $sql = "UPDATE `ds_articles` SET `title` = '{$title}', `url_title` = '{$title}', `description` = '{$desc}',
+                                `content` = '{$content}', `category` = {$cate}, `update_time` = '{$time}'
+                    WHERE `ID` = {$aid}";
+            $this->db->simple_query($sql);
+        }
         
         
     }

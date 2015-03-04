@@ -2,7 +2,7 @@
     /**
      * 获取文章信息数据库类
      */
-    Class Article_Model extends CI_Model {
+    Class Category_Model extends CI_Model {
         
         public function __construct() {
             parent::__construct();

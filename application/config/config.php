@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'https://dyhcms-yhdeng-6.c9.io/';
+$config['base_url']	= 'http://dyhcms.com/';
 
 /*
 |--------------------------------------------------------------------------
