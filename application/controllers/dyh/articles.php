@@ -17,7 +17,7 @@ class Articles extends CI_Controller {
 		
 		$index_page_tmp = $this->config->item('index_page');
 		$index_page = !empty($index_page_tmp) ? "index.php/" : "";
-		$paginations = $this->page_widget->page_1($page, round($articles['article_num'] / 15), $this->config->item("base_url") . $index_page . 'dyh/articles/index/');
+		$paginations = $this->page_widget->page_1($page, ceil($articles['article_num'] / 15), $this->config->item("base_url") . $index_page . 'dyh/articles/index/');
 	
 		$this->smarty->assign("paginations", $paginations);
 		
@@ -126,7 +126,7 @@ class Articles extends CI_Controller {
 
 			$R['msg'] = 'success';
 			$R['errorcode'] = 0;
-			$R['data'] = '/index.php/dyh/article/detail/' . $aid; //跳转url
+			$R['data'] = 'index.php/dyh/articles/detail/' . $aid; //跳转url
 		} else {
 			$R['msg'] = 'data error';
 		}

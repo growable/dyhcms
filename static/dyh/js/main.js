@@ -58,7 +58,7 @@
 		}
 	});
 
-	var url = 'http://' + window.location.host;
+	var url = 'http://' + window.location.host + '/';
 
 	//添加文章标签
 	$('#add_tag').keyup(function(event){
@@ -126,11 +126,73 @@
 	$('#article_save, #article_post').click(function(){
 		var c_type = 1;
 		c_type = $(this).attr('id') == 'article_save' ? 0 : 1; //操作类型
+
 		if ($.Article.CheckForm() === 1) {
 			$.Article.PostArticle(url,c_type);
 		}
 	});
+
+	//需要修改的分类
+	$('.category-li').on('click', function(){		
+		$.Category.GetCategoryDetail($(this), url);		
+	});
+
+	//确认修改
+	$('#alter_category').click(function(){
+		$.Category.AlterCategory(url);	
+	});
 });
+
+jQuery.Category = {
+	GetCategoryDetail:function(this_category, url) {
+		var cid = this_category.attr('data-id');
+		//获取该分类的详细信息
+		$.post(
+			url + 'index.php/dyh/category/getOne',
+			{"cid":cid},
+			function(data){
+				if (data.errorcode == 0) {
+					$('#category_id_alt').val(data.detail.ID);
+					$('#category_name_alt').val(data.detail.Name);
+					$('#category_url_alt').val(data.detail.URL);
+					$('#category_parent_alt').val(data.detail.PID);
+					$('#category_parent_alt').attr("data-org",data.detail.PID);//设置原分类父ID
+					$('#category_name_alt').focus();
+				}
+			},
+			"JSON"
+		);
+	},
+	AlterCategory:function(url) {
+		var cid = $('#category_id_alt').val();
+		if (cid > 0) {
+			var cname = $('#category_name_alt').val();
+			var curl  = $('#category_url_alt').val();
+			var cpid  = $('#category_parent_alt').val();
+			var copid = $('#category_parent_alt').attr("data-org"); //原分类父ID
+
+			if (cname.length > 0) {
+				$.post(
+					url + 'index.php/dyh/category/alterCategory',
+					{"cid":cid, 'cname':cname, 'curl':curl, 'cpid':cpid},
+					function(data){
+						if (data.errorcode == 0) {
+							//判断修改前后是否是同一个分类
+							$("a[data-id='"+data.detail.ID+"']").text(data.detail.Name); //替换
+						}
+					},
+					"JSON"
+				);
+			}
+		}
+	},
+	AddCategory:function() {
+
+	},
+	DeleteCategory:function(){
+
+	}
+};
 
 jQuery.Tag = {
 	AddTag:function(tag_val, aid, url) {
@@ -209,6 +271,7 @@ jQuery.Article = {
 		ue.ready(function() {
 		    var acontent = ue.getContent();
 		});
+		return status;
 	},
 	PostArticle:function(url,c_type){
 		var atitle = $('#posttitle').val();
@@ -217,8 +280,9 @@ jQuery.Article = {
 		var adesc  = $('#postdesc').text();
 		var acate  = $('#postcate').val();
 		var atag   = $('#add_tag').val();
+		var acontent = '';
 		ue.ready(function() {
-		    var acontent = ue.getContent();
+		    acontent = ue.getContent();
 		});
 
 		//设置load层

@@ -92,7 +92,7 @@
          */
         public function updateArticle($aid, $title, $url, $desc, $content, $cate) {
             $time = date("Y-m-d H:i:s");
-            $sql = "UPDATE `ds_articles` SET `title` = '{$title}', `url_title` = '{$title}', `description` = '{$desc}',
+            $sql = "UPDATE `ds_articles` SET `title` = '{$title}', `url_title` = '{$url}', `description` = '{$desc}',
                                 `content` = '{$content}', `category` = {$cate}, `update_time` = '{$time}'
                     WHERE `ID` = {$aid}";
             $this->db->simple_query($sql);
