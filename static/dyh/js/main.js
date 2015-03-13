@@ -133,14 +133,19 @@
 	});
 
 	//需要修改的分类
-	$('.category-li').on('click', function(){		
-		$.Category.GetCategoryDetail($(this), url);		
+	$('.category-li').on('click', function(){
+		$.Category.GetCategoryDetail($(this), url);
 	});
 
 	//确认修改
 	$('#alter_category').click(function(){
-		$.Category.AlterCategory(url);	
+		$.Category.AlterCategory(url);
 	});
+
+	//登录
+	$('#login_sub').click(function(){
+		$.Login.validate();
+	})
 });
 
 jQuery.Category = {
@@ -300,3 +305,73 @@ jQuery.Article = {
 		);
 	}
 };
+
+jQuery.Login = {
+	validate:function() {
+		var base = "http://" + window.location.host + "/index.php";
+		$("#user_name").blur(function(){
+			var u_name = $(this).val();
+			if (u_name.length == 0) {
+				$('#login_sub').css({"color":"red"}).text("Accound Name is Empty!");
+			} else {
+				$('#login_sub').css({"color":"#FFF"}).text("Login");
+			}
+		});
+
+		$("#user_pwd").blur(function(){
+			var u_pwd = $(this).val();
+			if (u_pwd.length == 0) {
+				$('#login_sub').css({"color":"red"}).text("Passwd is Empty!");
+			} else {
+				$('#login_sub').css({"color":"#FFF"}).text("Login");
+			}
+		});
+
+		$('#user_name, #user_pwd').keyup(function(event){
+			if (event.which == 13) {
+				var u_name = $('#user_name').val();
+				var u_pwd  = $('#user_pwd').val();
+
+				if (u_name.length == 0 || u_pwd.length == 0) {
+					$('#login_sub').css({"color":"red"}).text("Passwd is Empty!");
+				} else {
+					$.post(
+						base + "/dyh/login/validate",
+						{"uname":u_name, "upwd":u_pwd},
+						function(data) {
+							if (data.code) {
+								window.location.href = base + '/dyh/dyh';
+							} else {
+
+							}
+						},
+					 'json'
+					);
+				}
+			}
+		});
+
+		$('#login_sub').click(function(){
+			var u_name = $('#user_name').val();
+			var u_pwd  = $('#user_pwd').val();
+
+			if (u_name.length == 0 || u_pwd.length == 0) {
+				$('#login_sub').css({"color":"red"}).text("Account Or Passwd is Empty!");
+			} else {
+				$.post(
+					base + "/dyh/login/validate",
+					{"name":u_name, "pwd":u_pwd},
+					function(data) {
+						if (data.code) {
+							window.location.href = base + '/dyh/dyh';
+						} else {
+							$('#login_sub').css({"color":"red"}).text("Account Or Passwd is Error!");
+						}
+					},
+					'json'
+				);
+			}
+		});
+	}
+
+}
