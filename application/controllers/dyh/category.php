@@ -6,6 +6,8 @@ class Category extends CI_Controller {
 		parent::__construct();
 		$this->load->driver('cache', array('adapter' => 'file'));
 		$this->load->model("category_model");
+		$this->load->library("mylogin");
+		$this->mylogin->validate_login();
 	}
 
 	public function index()

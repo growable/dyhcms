@@ -13,7 +13,7 @@
          * @page: 当前页数
          * @num: 当前页面文章数
          */
-        public function getPageArticles($page = 1, $num = 15) {
+        public function getPageArticles($page = 1, $num = 15, $category) {
             $R = Array();
             $R['article_num'] = 0;
             
@@ -25,11 +25,20 @@
                 $from = ($page - 1) * $num;
                 
                 //获取当前页面文章
-                $csql = "SELECT da.ID as aid, da.title as title, da.post_time as post_time, da.update_time as update_time,dc.name as cname,dc.ID as cid FROM `ds_articles` da
+                $csql = "SELECT da.ID as aid, da.title as title, da.url_title as url,da.description as description, da.post_time as post_time, da.update_time as update_time,dc.name as cname,dc.ID as cid 
+                        ,GROUP_CONCAT(dt.`name`) as tags
+                        FROM `ds_articles` da
                         LEFT JOIN ds_category dc ON dc.id = da.category
-                        WHERE `status` = 1
-                        ORDER BY `post_time` DESC
+                        LEFT JOIN ds_assoc das ON das.target = da.ID
+                        LEFT JOIN ds_tags dt ON dt.ID = das.assoc
+                        WHERE `status` = 1 AND das.type = 1";
+                if ($category != 0) {
+                    $csql .= " AND da.category = {$category} ";
+                }
+                $csql .= "  GROUP BY da.ID
+                            ORDER BY `post_time` DESC
                         LIMIT {$from}, {$num}";
+                
                 $R['data'] = $this->db->query($csql)->result_array();
             }
             
@@ -96,6 +105,23 @@
                                 `content` = '{$content}', `category` = {$cate}, `update_time` = '{$time}'
                     WHERE `ID` = {$aid}";
             $this->db->simple_query($sql);
+        }
+
+        /**
+         * [getPreNextArticle 获取当前文章上一篇和下一篇文章]
+         * @param  [type] $aid  [description]
+         * @param  string $type [description]
+         * @return [type]       [description]
+         */
+        public function getPreNextArticle($aid, $type) {
+            $sql = "SELECT * FROM `ds_articles` WHERE ";
+            if ($type == 'pre') {
+                $sql .= " ID < {$aid} ORDER BY ID DESC LIMIT 1";
+            } else if ($type == 'next') {
+                $sql .= " ID > {$aid}  ORDER BY ID ASC LIMIT 1";
+            }
+
+            return $this->db->query($sql)->result_array();
         }
         
         

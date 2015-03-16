@@ -48,7 +48,7 @@
 .cell-post{
 	background-color: #FFF;
 	box-shadow:0 1px 1px 0 rgba(0,0,0,0.25);
-	height: 200px;
+	padding-bottom:16px;
 	border-radius: 2px;
 }
 .cell-top{
@@ -183,13 +183,14 @@
 	height: 50px;
 	background-color: #FFF;
 	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.25);
+	border-radius: 100px;
 }
 #to_top:hover{
 	cursor: pointer;
 }
 .arrow{
 	position: absolute;;
-	left: 17px;
+	left: 15px;
 	top: 7px;
 	display: inline-block;
 	width: 0;

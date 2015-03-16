@@ -51,7 +51,7 @@
 	});
 
 	//链接跳转
-	$('.menu li, .http-direct span').click(function(){
+	$('.menu li, .http-direct span, .article-edit').click(function(){
 		var href = $(this).attr("data-href");
 		if (href.length > 0) {
 			window.location.href = "http://" + window.location.host + "/" + href;

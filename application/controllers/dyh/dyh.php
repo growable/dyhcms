@@ -4,6 +4,8 @@ class DYH extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->library("mylogin");
+		$this->mylogin->validate_login();
 	}
 
 	public function index()

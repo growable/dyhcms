@@ -3,6 +3,8 @@ class Articles extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model("article_model");
+		$this->load->library("mylogin");
+		$this->mylogin->validate_login();
 		$this->load->driver('cache', array('adapter' => 'file'));
 	}
 

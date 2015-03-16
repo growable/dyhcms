@@ -13,75 +13,26 @@
 </head>
 <body class="bg">
 	<div class="body-width container">
-		<div class="col-xs-12 col-sm-4" id="left">
-			<div class="col-xs-12 user-pic">
-				<img src="<{$base_url}>static/comm/img/demo.jpg"/>
-			</div>
-			<div class="col-xs-12 web-name">Growable Happiness</div>
-			<div class="col-xs-12 web-about">
-				<p>If you want something, go get it.</p>
-			</div>
-			<div class="col-xs-10 col-xs-offset-1">
-				<ul class="col-xs-12 menu">
-					<a href="<{$base_url}>"><li title="首页">首页</li></a></a>
-					<a href="<{$base_url}><{$index_page}>category/php"><li title="PHP">PHP</li></a>
-					<a href="<{$base_url}><{$index_page}>category/mysql"><li title="MySQL">MySQL</li></a>
-					<a href="<{$base_url}><{$index_page}>category/js"><li title="JS">JS</li></a>
-					<a href="<{$base_url}><{$index_page}>category/other"><li title="其他">其他</li></a>
-				</ul>
-			</div>
-			<div class="col-xs-12 line"></div>
-			<div class="col-xs-12 copy-right">
-				<p>&copy; DYHCMS.COM</p>
-				<p>Powered By Growable.</p>
-			</div>
-		</div>
-		<div id="left_placeholder" class="col-xs-12 col-sm-4"></div>
-		<div class="col-xs-12 col-sm-8" id="right">
+		<{include file="./left_bar.html"}>
+		<div class="col-xs-12 col-sm-8" id="right" data-page="1" data-category="<{$cid}>">
 			<ol class="breadcrumb list-breadcrumb">
 				<li><a href="<{$base_url}>" title="首页">首页</a></li>
-				<li>PHP</li>
+				<{if isset($cname)}>
+					<li class="active"><{$cname}></li>
+				<{/if}>
 			</ol>
+			<{foreach from=$articles.data name=article item=article}>
 			<div class="col-xs-12 cell">
 				<div class="col-xs-12 cell-post">
-					<h2 class="cell-top"><a href="<{$base_url}><{$index_page}>article/1">通过下表可以详细查看 Bootstrap </a></h2>
-					<div class="cell-center"><p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。下面就介绍一下 Bootstrap 栅格系统的工作原理：</p></div>
+					<h2 class="cell-top"><a href="<{$base_url}><{$index_page}><{if isset($article.url_str)}><{$article.url_str}><{else}><{$article.aid}><{/if}>.html"><{$article.title}></a></h2>
+					<div class="cell-center"><p><{$article.description}></p></div>
 				</div>
 				<div class="col-xs-12 cell-bottom">
-					<span class="post-time" title="发布时间">2015-01-29</span>
-					<span class="post-tags" title="文章标签">123,567</span>
+					<span class="post-time" title="发布时间"><{$article.post_time|date_format:"%Y-%m-%d"}></span>
+					<span class="post-tags" title="文章标签"><{$article.tags}></span>
 				</div>
 			</div>
-			<div class="col-xs-12 cell">
-				<div class="col-xs-12 cell-post">
-					<h2 class="cell-top"><a href="<{$base_url}><{$index_page}>article/1">通过下表可以详细查看 Bootstrap </a></h2>
-					<div class="cell-center"><p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。下面就介绍一下 Bootstrap 栅格系统的工作原理：</p></div>
-				</div>
-				<div class="col-xs-12 cell-bottom">
-					<span class="post-time" title="发布时间">2015-01-29</span>
-					<span class="post-tags" title="文章标签">123,567</span>
-				</div>
-			</div>
-			<div class="col-xs-12 cell">
-				<div class="col-xs-12 cell-post">
-					<h2 class="cell-top"><a href="<{$base_url}><{$index_page}>article/1">通过下表可以详细查看 Bootstrap </a></h2>
-					<div class="cell-center"><p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。下面就介绍一下 Bootstrap 栅格系统的工作原理：</p></div>
-				</div>
-				<div class="col-xs-12 cell-bottom">
-					<span class="post-time" title="发布时间">2015-01-29</span>
-					<span class="post-tags" title="文章标签">123,567</span>
-				</div>
-			</div>
-			<div class="col-xs-12 cell">
-				<div class="col-xs-12 cell-post">
-					<h2 class="cell-top"><a href="<{$base_url}><{$index_page}>article/1">通过下表可以详细查看 Bootstrap </a></h2>
-					<div class="cell-center"><p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。下面就介绍一下 Bootstrap 栅格系统的工作原理：</p></div>
-				</div>
-				<div class="col-xs-12 cell-bottom">
-					<span class="post-time" title="发布时间">2015-01-29</span>
-					<span class="post-tags" title="文章标签">123,567</span>
-				</div>
-			</div>
+			<{/foreach}>
 		</div>
 		<div id="to_top" title="返回顶部" style="display:none">
 			<span class="arrow">&nbsp;</span>

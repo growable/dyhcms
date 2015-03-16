@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><{$title}></title>
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
+	<title><{$article.title}> - <{$curr_category_name}> - YHDENG</title>
+	<meta name="keywords" content="<{foreach from=$tags name=tag item=tag}><{$tag.tname}>,<{/foreach}>" />
+	<meta name="description" content="<{$article.description}>" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link href="<{$base_url}>static/dist/css/bootstrap.css" rel="stylesheet">
 	<link href="<{$base_url}>static/comm/css/main.css" rel="stylesheet">		
@@ -13,53 +13,26 @@
 </head>
 <body class="bg">
 	<div class="body-width container">
-		<div class="col-xs-12 col-sm-4" id="left">
-			<div class="col-xs-12 user-pic">
-				<img src="<{$base_url}>static/comm/img/demo.jpg"/>
-			</div>
-			<div class="col-xs-12 web-name">Growable Happiness</div>
-			<div class="col-xs-12 web-about">
-				<p>If you want something, go get it.</p>
-			</div>
-			<div class="col-xs-10 col-xs-offset-1">
-				<ul class="col-xs-12 menu">
-					<a href="<{$base_url}>"><li title="首页">首页</li></a></a>
-					<a href="<{$base_url}><{$index_page}>category/php"><li title="PHP">PHP</li></a>
-					<a href="<{$base_url}><{$index_page}>category/mysql"><li title="MySQL">MySQL</li></a>
-					<a href="<{$base_url}><{$index_page}>category/js"><li title="JS">JS</li></a>
-					<a href="<{$base_url}><{$index_page}>category/other"><li title="其他">其他</li></a>
-				</ul>
-			</div>
-			<div class="col-xs-12 line"></div>
-			<div class="col-xs-12 copy-right">
-				<p>&copy; DYHCMS.COM</p>
-				<p>Powered By Growable.</p>
-			</div>
-		</div>
-		<div id="left_placeholder" class="col-xs-12 col-sm-4"></div>
-		<div class="col-xs-12 col-sm-8" id="right">
+		<{include file="./left_bar.html"}>
+		<div class="col-xs-12 col-sm-8" id="right" data-article="<{$article.ID}>">
 			<section class="col-xs-12 article">
 				<ol class="breadcrumb">
 					<li><a href="<{$base_url}>" title="首页">首页</a></li>
-					<li><a href="" title="PHP">PHP</a></li>
-					<li class="active">西南地区持续雨雪 京津冀等地有轻度霾</li>
+					<li><a href="<{$base_url}><{$index_page}>category/<{$curr_category_url}>" title="<{$curr_category_name}>"><{$curr_category_name}></a></li>
+					<li class="active"><{$article.title}></li>
 				</ol>
 				<header class="col-xs-12 article-header">
-					<h1>西南地区持续雨雪 京津冀等地有轻度霾</h1>
+					<h1><{$article.title}></h1>
 				</header>
-				<div class="col-xs-12 article-content">
-					<p>未来三天，贵州、广西等地仍将持续阴雨（雪）天气，贵州局地有冻雨；明天（6日）起，将有一股较强冷空气影响影响我国，华北、东北、黄淮东部等地迎大风降温，部分地区降温幅度达10-14℃。</p>
-					<p>在这股冷空气到来之前，5日夜间至6日，华北、黄淮等地有轻度霾，局地中度霾。</p>
-					<p>昨天，春运正式拉开帷幕，全国降水主要集中在南方，江南东部和南部、华南中北部、西南地区东部一带出现较大范围的雨雪天气。</p>
-					<p>昨5时至今5时，浙江西南部、福建、广东中北部、江西中南部、湖南南部、广西、贵州大部、云南东部、重庆中部、四川盆地西南部等地的部分地区出现降雨，以小雨为主，24小时降雨量大都不超过2毫米，局地有中雨。</p>
-					<p>昨天14时，受冷空气及阴雨雪天气影响，四川中部、云南东部、贵州西部、广东中东部、福建西南部等地相比前天同时次普遍出现4-8℃的降温，局地降幅达10-14℃。像福建永定降幅达14℃，昨天14时气温仅有8.1℃，伴随着雨水，相比前天湿冷的感觉明显加重。</p>
-					<p>明天开始，受较强冷空气影响，华北、东北、黄淮东部等将有6-10℃降温，部分地区降温幅度可达10-14℃；黄淮及其以北地区有5-6级偏北风，东部海域有8级左右大风。另外，在这股强冷空气到达之前，5日夜间至6日，华北、黄淮等地有轻度霾，局地中度霾，7日受冷空气影响，上述地区霾天气逐渐减弱消散。</p>
-					<p>近期，西南地区东部多阴雨雪，尤其贵州中部局地有冻雨，正值春运，相关部门需加强防范道路湿滑、结冰、电线覆冰对交通运输、电力等的不利影响；另外，我国南部和东部海域需关注大风天气对海上航运等的不利影响。</p>
-				</div>				
+				<div class="col-xs-12 article-content"><{$article.content}></div>
 			</section>
 			<div class="col-xs-12 article-footer">
-				<span class="post-time" title="发布时间">2015-01-29</span>
-				<span class="post-tags" title="文章标签">123,567</span>
+				<span class="post-time" title="发布时间"><{$article.post_time|date_format:"%Y-%m-%d"}></span>
+				<span class="post-tags">
+					<{foreach from=$tags name=tag item=tag}>
+						<{$tag.tname}>
+					<{/foreach}>
+				</span>
 			</div>
 			<div class="col-xs-12 pre-next">
 				<div class="col-xs-6 text-left"><a href="">上一篇</a></div>
@@ -67,23 +40,23 @@
 			</div>
 			<div class="col-xs-12 other">
 				<div class="col-xs-12 col-sm-6 same">
-					<span class="col-xs-12">相似文章</span>
+					<span class="col-xs-12"><{$curr_category_name}>最新文章</span>
 					<ul>
-						<li><a href="">寒潮虽将撤离 天寒地冻仍然持续</a></li>
-						<li><a href="">天气信息：进三九了早晚更冷 周末再刮5级大风</a></li>
-						<li><a href="">明日最高-2℃ 这真的是“三九”天吗？</a></li>
-						<li><a href="">云南局地遭受强雨雪袭击 致百余万人受灾1人身亡</a></li>
-						<li><a href="">天津市发布重污染天气蓝色预警</a></li>
+						<{foreach from=$curr_latest_articles name=curr_article item=curr_article}>
+							<{if $smarty.foreach.curr_article.index < 5}>
+							<li><a href="<{$base_url}><{$index_page}><{$curr_article.url_str}>.html"><{$curr_article.title}></a></li>
+							<{/if}>
+						<{/foreach}>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-6 latest">
 					<span class="col-xs-12">最新文章</span>
 					<ul>
-						<li><a href="">寒潮虽将撤离 天寒地冻仍然持续</a></li>
-						<li><a href="">天气信息：进三九了早晚更冷 周末再刮5级大风</a></li>
-						<li><a href="">明日最高-2℃ 这真的是“三九”天吗？</a></li>
-						<li><a href="">云南局地遭受强雨雪袭击 致百余万人受灾1人身亡</a></li>
-						<li><a href="">天津市发布重污染天气蓝色预警</a></li>
+						<{foreach from=$latest_articles name=article item=article}>
+							<{if $smarty.foreach.article.index < 5}>
+							<li><a href="<{$base_url}><{$index_page}><{$article.url_str}>.html"><{$article.title}></a></li>
+							<{/if}>
+						<{/foreach}>
 					</ul>
 				</div>
 			</div>

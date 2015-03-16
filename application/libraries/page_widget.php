@@ -71,4 +71,48 @@
             
             return $R;
         }
+
+        /**
+         * [getPageArticle 获取文章列表]
+         * @param  [type] $page     [列表页数]
+         * @param  [type] $num      [列表文章数]
+         * @param  [type] $category [列表文章分类]
+         * @return [type]           [description]
+         */
+        public function getPageArticle ($page, $num, $category) {
+            $this->CI->load->model("article_model");
+
+            if ($category != 0) {
+                $name = 'article/category-latest-' . $category . '-' . $page;
+            } else {
+                $name = 'article/latest-' . $page;
+            }
+
+            if (! $articles = $this->CI->cache->get($name)) {
+                $articles = $this->CI->article_model->getPageArticles($page, $num, $category);
+
+                foreach ($articles['data'] as $k => $v) {
+                    if (! empty($v['url'])) {
+                        $articles['data'][$k]['url_str'] = $this->strToUrl($v['url']);
+                    }
+                }
+                
+                $this->CI->cache->save($name, $articles, 3600 * 24);
+                $this->CI->cache->save($name, $articles, 3600 * 24);
+            }
+            return $articles;
+        }
+
+        /**
+         * [strToUrl 字符串处理成url格式]
+         * @param  [type] $str [description]
+         * @return [type]      [description]
+         */
+        public function strToUrl($str) {
+            $str = strtolower(trim($str));
+            $str = preg_replace("/[\W]/i", "-", $str);
+            $str = preg_replace("/-{2,}/i", "-", $str);
+
+            return $str;
+        }
     }

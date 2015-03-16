@@ -41,8 +41,10 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
-$route['article/(:any)'] = 'article/index/$1';
 $route['category/(:any)'] = 'category/index/$1';
+$route['load_article_list'] = 'article/loadArticleList';
+$route['load_article_prenext'] = 'article/articlePreNext';
+$route['(:any)'] = 'article/index/$1';
 
 
 /* End of file routes.php */

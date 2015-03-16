@@ -22,9 +22,11 @@
                     if ($v['parent'] == 0) {
                         $category[$v['ID']]['ID']   = $v['ID'];
                         $category[$v['ID']]['Name'] = $v['name'];
+                        $category[$v['ID']]['Url']  = $v['url'];
                     } else {
                         $category[$v['parent']]['Child'][$v['ID']]['ID']   = $v['ID'];
                         $category[$v['parent']]['Child'][$v['ID']]['Name'] = $v['name'];
+                        $category[$v['parent']]['Child'][$v['ID']]['Url'] = $v['url'];
                     }
                 }
             }
