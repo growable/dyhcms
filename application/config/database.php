@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '127.0.0.1';
-$db['default']['username'] = 'admin';
-$db['default']['password'] = 'admin';
-$db['default']['database'] = 'nf';
+$db['default']['hostname'] = 'mysql.sql32.eznowdata.com';
+$db['default']['username'] = 'sq_yhdengblog';
+$db['default']['password'] = 'lpiloveyou86';
+$db['default']['database'] = 'sq_yhdengblog';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
